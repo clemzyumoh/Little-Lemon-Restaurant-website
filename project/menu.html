@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+          <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Reservation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class=" mt-5 p-5">
+                <form>
+                    <label for="exampleInputPassword1" id="select-number-of-people" class="form-label">Number of People</label>
+                    <select class="form-select" aria-label="Default select example" id=" select-number-of-people">
+                        <option selected disabled>Number of people</option>
+                        <option value="1">One Person</option>
+                        <option value="2">Two People</option>
+                        <option value="3">Three People</option>
+                        <option value="4">four People</option>
+                        <option value="5">Five People</option>
+                        <option value="6">Six People</option>
+                        <option value="7">Seven People</option>
+                        <option value="8+">More People</option>
+                    </select>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Date</label>
+                      <input type="date" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Time</label>
+                        <input type="time" class="form-control" id="exampleInputPassword1">
+                      </div>
+                    <button type="submit" class="btn btn-success btn-block">Find a table</button>
+                  </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Sign-Up</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class=" mt-5 p-5">
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">First Name</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Your Email</label>
+                        <input type="email" class="form-control" id="exampleInputPassword1" required placeholder="@">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                    <button type="submit" class="btn btn-success btn-block" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">Log-In</button>
+                  </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Log In</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class=" mt-5 p-5">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Your Email</label>
+                        <input type="email" class="form-control" id="exampleInputPassword1" required placeholder="@">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" required placeholder="********">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                    <button type="submit" class="btn btn-success btn-block"data-bs-toggle="modal" data-bs-target="#staticBackdrop1">Sign-Up</button>
+                  </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#"><span class="text-success">Little</span>Lemon</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link " href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#menu">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#reservation" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reservation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#contact">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#login-in/sign-up"data-bs-toggle="modal" data-bs-target="#staticBackdrop1">Login/Sign-up</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+    </nav>
+    <section class="bt section-padding">
+        <div class="btn-group d-flex p-5">
+            <a href="#" id="btn-dinner" class="btn btn-success active" aria-current="page">Dinner</a>
+            <a href="#" id="btn-dessert" class="btn btn-outline-success">Dessert</a>
+            <a href="#" id="btn-cheese" class="btn btn-outline-success">Cheese</a>
+            <a href="#" id="btn-drinks" class="btn btn-outline-success">Drinks</a>
+          </div>
+    </section>
+    <section id="dinner" class="dinner">
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>Snacks</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>ARMY SOURDOUGH</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>12</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>CRUDITÉS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>12</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>SOUFFLÉ CAKES</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>23</h5>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>HONEYNUT BOMBOLONI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>23</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>DUCK MORTADELLA</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>20</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>FOIE GRAS CANELÉ</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>15</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>SHELLFISH</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>OYSTERS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>15-30</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>LITTLENECK CLAMS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>14-28</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PRAWNS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>20-40</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>STARTERS</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>MARKET SALAD</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>24</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>STEELHEAD TROUT</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>27</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PUMPKIN</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>32</h5>
+                    </div>
+                </div>
+                <div class="row text-center d-flex justify-content-around mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>CARPACCIO</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>31</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>SPANISH DUCK CHORIZO</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>PASTA</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>BUCATINI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>27</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>CONCHIGLIE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>AGNOLOTTI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>23</h5>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>RIGATONI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>RAVIOLI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>28</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PAPPARDELLE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>32</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>MAINS</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>FRA DIAVOLO</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>39</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>HALIBUT À LA GRENOBLOISE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>45</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PORCHETINI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>45</h5>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>TO SHARE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>DRY-AGED CROWN OF DUCK</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>128</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PRIME CÔTE DE BOEUF</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>132</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section id="dessert" class="dessert">
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>DESSERT</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>STICKY TOFFEE CAKE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>72</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>CHOCOLATE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>92</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>CREME BRULEE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>16</h5>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>SUNDAE FOR TWO</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>223</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>COUPE DE GLACE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>20</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>ARTISANAL CHEESE TRIO PLATE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>15</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>COFFEE</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>OYSTERS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>15-30</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>LITTLENECK CLAMS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>14-28</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PRAWNS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>20-40</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>TEA</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>MARKET SALAD</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>24</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>STEELHEAD TROUT</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>27</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PUMPKIN</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>32</h5>
+                    </div>
+                </div>
+                <div class="row text-center d-flex justify-content-around mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>CARPACCIO</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>31</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>SPANISH DUCK CHORIZO</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section id="cheese" class="cheese">
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>GOAT'S MILK CHEESES</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>BRIE DE MEAUX</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>12</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>NOBLE ROAD</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>12</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>RUSH CREEK RESERVE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>23</h5>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>CHAUDRON D’OR</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>23</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>ÉPOISSES DE BOURGOGNE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>20</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>MONTGOMERY’S CHEDDAR</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>15</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>EWE'S MILK CHEESES</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>OYSTERS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>15-30</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>LITTLENECK CLAMS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>14-28</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PRAWNS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>20-40</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>COW'S MILK CHEESES</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>MARKET SALAD</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>24</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>STEELHEAD TROUT</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>27</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PUMPKIN</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>32</h5>
+                    </div>
+                </div>
+                <div class="row text-center d-flex justify-content-around mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>CARPACCIO</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>31</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>SPANISH DUCK CHORIZO</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>BLUE CHEESES</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>BUCATINI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>27</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>CONCHIGLIE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>AGNOLOTTI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>23</h5>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>RIGATONI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>RAVIOLI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>28</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PAPPARDELLE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>32</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section id="drinks" class="drinks">
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>COCKTAILS</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>THE MARTINI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>12</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>GRANNY SMITH APPLETINI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>12</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>SHAKEN PIÑA COLADA</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>23</h5>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PENICILLIN</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>23</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>OAXACAN OLD FASHIONED</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>20</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>NAKED & FAMOUS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>15</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>BEER & CIDER</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>OYSTERS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>15-30</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>LITTLENECK CLAMS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>14-28</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PRAWNS</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>20-40</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>SPARKLING</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>MARKET SALAD</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>24</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>STEELHEAD TROUT</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>27</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PUMPKIN</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>32</h5>
+                    </div>
+                </div>
+                <div class="row text-center d-flex justify-content-around mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>CARPACCIO</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>31</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>SPANISH DUCK CHORIZO</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>WHITE</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>BUCATINI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>27</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>CONCHIGLIE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>AGNOLOTTI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>23</h5>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>RIGATONI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>RAVIOLI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>28</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PAPPARDELLE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>32</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="menu section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>RED</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>FRA DIAVOLO</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>39</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>HALIBUT À LA GRENOBLOISE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>45</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PORCHETINI</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>45</h5>
+                    </div>
+                </div>
+                <div class="row text-center mb-5">
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>TO SHARE</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>29</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>DRY-AGED CROWN OF DUCK</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>128</h5>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4">
+                        <h4>PRIME CÔTE DE BOEUF</h4>
+                        <p>sunflower spread, whipped lardo</p>
+                        <h5>132</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+    <footer class="bg-dark p-2 text-center">
+        <div class="container">
+            <div class="row d-flex justify-content-between align-items-center ">
+              <div class="col-12  col-md-6 col-lg-4 d-flex justify-content-lg-start justify-content-sm-center justify-content-md-start">
+                <img src="images/logo.png" alt="" class="img-fluid " width="10%">
+              </div>
+              <div class="col-12  col-md-6 col-lg-4 d-flex justify-content-lg-end mt-3 justify-content-sm-center justify-content-md-end">
+                <p class="text-white">All Right REserved @Website name</p>
+              </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
